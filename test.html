@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Поиск решений судов общей юрисдикции</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta name="description" content="Самая полная база данных решений и дел судов общей юрисдикции России. Удобный поиск и подписки на обновления.">
+                    <!-- Bootstrap -->
+        <link href="/css/bootstrap.css" rel="stylesheet" media="screen">
+        <link href="/bundles/akjudgementcard/css/decorate.css" rel="stylesheet" media="screen">
+    
+    <link href="/bundles/akjudgementcard/css/datepicker.css" rel="stylesheet" />
+    <link href="/bundles/akjudgementcard/css/aciTree.css" rel="stylesheet" />
+
+        <!-- HTML5 Shim and Respond.js add IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv-printshiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+<![endif]-->
+
+                <!-- jQuery (necessary for Bootstraps JavaScript plugins) -->
+        <script src="/js/jquery.js"></script>
+    
+    <script src="/bundles/akjudgementcard/js/datepicker.js"></script>
+    <script src="/bundles/akjudgementcard/js/jquery.aciPlugin.min.js"></script>
+    <script src="/bundles/akjudgementcard/js/jquery.aciTree.dom.js"></script>
+    <script src="/bundles/akjudgementcard/js/jquery.aciTree.core.js"></script>
+    <script src="/bundles/akjudgementcard/js/jquery.aciTree.selectable.js"></script>
+    <script src="/bundles/akjudgementcard/js/jquery.aciTree.checkbox.js"></script>
+    <script src="/bundles/akjudgementcard/js/jquery.aciTree.utils.js"></script>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=2" />
+</head>
+
+<body>
+<div id="content" style="padding-bottom:30px; padding-top:10px">
+<div class="container">
+<div class="row">
+    <div class="col-md-3 col-sm-4 col-xs-4"><a href="/"><img class="img-responsive" src="/images/logo.png"></a></div>
+    <div class="col-md-9 col-sm-8 col-xs-8" id="top-banner">
+        <script type='text/javascript'><!--//<![CDATA[
+   var m3_u = (location.protocol=='https:'?'https://ox.ruscourt.info/www/delivery/ajs.php':'http://ox.ruscourt.info/www/delivery/ajs.php');
+   var m3_r = Math.floor(Math.random()*99999999999);
+   if (!document.MAX_used) document.MAX_used = ',';
+   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+   document.write ("?zoneid=12&amp;target=_blank&amp;charset=UTF-8");
+   document.write ('&amp;cb=' + m3_r);
+   if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+   document.write ('&amp;charset=UTF-8');
+   document.write ("&amp;loc=" + escape(window.location));
+   if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+   if (document.context) document.write ("&context=" + escape(document.context));
+   if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+   document.write ("'><\/scr"+"ipt>");
+//]]>--></script><noscript><a href='http://ox.ruscourt.info/www/delivery/ck.php?n=a96a0dcd&amp;cb=3475935628455746' target='_blank'><img src='http://ox.ruscourt.info/www/delivery/avw.php?zoneid=12&amp;charset=UTF-8&amp;cb=3475935628455746&amp;n=a96a0dcd' border='0' alt='' /></a></noscript>
+
+
+    </div>
+</div>
+<div class="row"><div class="col-md-12">
+    <div style="height:2px; background-color:#317bba"></div>
+</div></div>
+<div class="row" style="margin-top:30px">
+    <div class="col-md-9">
+        <div class="row"><div class="col-md-12">
+        <ul class="nav nav-tabs">
+            <li role="presentation"><a href="/search">Простой поиск</a></li>
+            <li role="presentation" class="active"><a href="#">Расширенный поиск</a></li>
+            <li role="presentation"><a href="/pc/">Личный кабинет</a></li>
+        </ul>
+    </div></div>
+    <div class="row">
+    <div class="col-md-12" style="margin-bottom:20px">
+        <div style="background-color:#e7e8ea; padding:10px">
+                <form  name="extendedSearch" method="post" action="/extended_filter" class="form-horizontal" id="search-form" role="form">
+                
+
+            <div class="form-group">
+                    <label class="col-md-2 control-label" for="extendedSearch_content">Текст документа</label>
+                <div class="col-md-5">
+                        <input type="text"     id="extendedSearch_content" name="extendedSearch[content]"        class="form-control" >
+                </div>
+                    <label class="col-md-2 control-label" for="extendedSearch_case_number">Номер&nbsp;дела</label>
+                <div class="col-md-3">
+                        <input type="text"     id="extendedSearch_case_number" name="extendedSearch[case_number]"        class="form-control" >
+                </div>
+            </div>
+
+                            <div class="form-group">
+                        <label class="col-md-2 control-label" for="extendedSearch_person_info_0_person">Участник дела</label>
+                    <div class="col-md-5">
+                            <input type="text"     id="extendedSearch_person_info_0_person" name="extendedSearch[person_info][0][person]"        class="form-control" >
+                    </div>
+                        <label class="col-md-2 control-label" for="extendedSearch_person_info_0_person_status">Статус участника</label>
+                    <div class="col-md-3">
+                            <select     id="extendedSearch_person_info_0_person_status" name="extendedSearch[person_info][0][person_status]"        class="form-control"><option  value=""></option><option value="1">ОТВЕТЧИК</option><option value="2">ИСТЕЦ</option><option value="4">ЗАЯВИТЕЛЬ</option><option value="5">ЗАИНТЕРЕСОВАННОЕ ЛИЦО</option><option value="8">ТРЕТЬЕ ЛИЦО</option><option value="10">ДОЛЖНИК</option><option value="11">ВЗЫСКАТЕЛЬ</option><option value="13">ПРОКУРОР</option><option value="15">Эксперт</option><option value="16">Свидетель</option><option value="17">Специалист</option><option value="18">Переводчик</option><option value="19">Медиатор</option><option value="42">Подсудимый (осужденный)</option></select>
+                    </div>
+                </div>
+            
+            
+            <div class="form-group" style="min-height:390px">
+                <label for="simpleSearch_court" class="col-md-2 control-label">Суд</label>
+                <div class="col-md-10" style="padding-top:10px"><div id="tree" class="aciTree aciTreeBig aciTreeNoBranches"></div></div>
+            </div>
+
+            <div class="form-group">
+                    <label class="col-md-2 control-label" for="extendedSearch_judge">Судья</label>
+                <div class="col-md-3">
+                        <input type="text"     id="extendedSearch_judge" name="extendedSearch[judge]"        class="form-control" >
+                </div>
+            </div>
+
+            <div class="form-group">
+                    <label class="col-md-2 control-label" for="extendedSearch_case_type">Вид производства</label>
+                <div class="col-md-10">
+                        <select     id="extendedSearch_case_type" name="extendedSearch[case_type]"        class="form-control"><option  value=""></option><optgroup label="Гражданские и административные дела"><option value="gr_first">Первая инстанция (гражданские и административные дела)</option><option value="gr_appeal">Апелляция (гражданские и административные дела)</option><option value="gr_cass">Кассация (гражданские и административные дела)</option></optgroup><optgroup label="Делa по административным правонарушениям"><option value="adm_first">Первая инстанция (дела по административным правонарушениям)</option><option value="adm_appeal">Апелляция (дела по административным правонарушениям)</option><option value="adm_cass">Кассация (дела по административным правонарушениям)</option><option value="adm_nadzor">Надзор (дела по административным правонарушениям)</option></optgroup><optgroup label="Уголовные дела"><option value="ug_first">Первая инстанция (уголовные дела)</option><option value="ug_appeal">Апелляция (уголовные дела)</option><option value="ug_cass">Кассация (уголовные дела)</option></optgroup></select>
+                </div>
+            </div>
+
+            <div id="sub-category-1">
+                            </div>
+
+            <div id="sub-category-2">
+                            </div>
+
+            <div id="result">
+                            </div>
+
+            <div class="form-group">
+                    <label class="col-md-2 control-label" for="extendedSearch_entry_start">Поступило c</label>
+                <div class="col-md-2">
+                        <input type="text"     id="extendedSearch_entry_start" name="extendedSearch[entry_start]"        class="date-field form-control" data-date-format="dd.mm.yyyy" data-date-weekStart="1" >
+                </div>
+                    <label class="col-md-1 control-label" for="extendedSearch_entry_end">по</label>
+                    <div class="col-md-2">
+                        <input type="text"     id="extendedSearch_entry_end" name="extendedSearch[entry_end]"        class="date-field form-control" data-date-format="dd.mm.yyyy" data-date-weekStart="1" >
+                </div>
+            </div>
+
+            <div class="form-group">
+                    <label class="col-md-2 control-label" for="extendedSearch_result_start">Рассмотрено с</label>
+                <div class="col-md-2">
+                        <input type="text"     id="extendedSearch_result_start" name="extendedSearch[result_start]"        class="date-field form-control" data-date-format="dd.mm.yyyy" data-date-weekStart="1" >
+                </div>
+                    <label class="col-md-1 control-label" for="extendedSearch_result_end">по</label>
+                <div class="col-md-2">
+                        <input type="text"     id="extendedSearch_result_end" name="extendedSearch[result_end]"        class="date-field form-control" data-date-format="dd.mm.yyyy" data-date-weekStart="1" >
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-2 col-md-push-10">
+                        <button type="submit" id="extendedSearch_search" name="extendedSearch[search]" class="btn btn-primary col-md-12 btn-sm btn btn-primary">Поиск</button>
+                </div>
+                <div class="col-md-2">
+                        <button type="submit" id="extendedSearch_reset" name="extendedSearch[reset]" class="btn btn-danger col-md-12 btn-sm btn btn-primary">Очистить</button>
+                </div>
+            </div>
+                <input type="hidden"     id="extendedSearch__token" name="extendedSearch[_token]"        class="form-control" value="PiwUHXfwjcDNOpbSC3nAojOjSxwo2KOXTPOFENoGT8c" ></form>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+var hiddenCourts = [];
+var hiddenRegions = [];
+jQuery(document).ready(function() {
+
+    $(".date-field").datepicker().on("changeDate", function() {
+        $(".datepicker").hide();
+    });
+
+    $("#tree").aciTree({
+        ajax: {
+            url: "/loadCourtTree/extended"
+        },
+        checkbox: true,
+        collapse: true,
+        animateRoot: false
+    });
+
+    $('#tree').on('acitree', function(event, api, item, eventName, options) {
+        switch (eventName) {
+            case 'checked':
+            case 'unchecked':
+            case 'loaded':
+                hiddenCourts = [];
+                hiddenRegions = [];
+                api.branch(null, function(item) {
+                    if(api.isChecked(item)) {
+                        if(api.hasChildren(item)) {
+                            hiddenRegions.push('<input type="hidden" name="extendedSearch[region][]" value="'+api.getId(item)+'">');
+                        } else {
+                            hiddenCourts.push('<input type="hidden" name="extendedSearch[court][]" value="'+api.getId(item)+'">');
+                        }
+                    }
+                });
+                break;
+        }
+    });
+
+    $("#search-form").submit(function() {
+        $(this).append(hiddenCourts.join(''));
+        $(this).append(hiddenRegions.join(''));
+    });
+
+    $('#extendedSearch_case_type').change(function() {
+        var catData = {};
+        var resultData = {};
+        var caseType = $(this).val();
+        catData['case_type'] = caseType;
+        catData['form_id'] = 'extendedSearch';
+
+        var vidAndStage = caseType.match(/(\w+)_(\w+)/);
+        resultData['result_case_vid'] = vidAndStage[1];
+        resultData['result_case_stage'] = vidAndStage[2];
+
+        $.ajax({
+            url : '/loadSubCategories1',
+            type: 'post',
+            data : catData,
+            success: function(html) {
+                $('#sub-category-1').html(html);
+                $('#sub-category-2').html('');
+            }
+        });
+
+        $.ajax({
+            url : '/loadResults',
+            type: 'post',
+            data : resultData,
+            success: function(html) {
+                $('#result').html(html);
+            }
+        });
+    });
+
+    $('#search-form').on('change', '#extendedSearch_sub_category_1', function() {
+        var data = {};
+        data['sub_category_1'] = $(this).val();
+        data['case_type'] = $('#extendedSearch_case_type').val();
+        data['form_id'] = 'extendedSearch';
+
+        $.ajax({
+            url : '/loadSubCategories2',
+            type: 'post',
+            data : data,
+            success: function(html) {
+                $('#sub-category-2').html(html);
+            }
+        });
+    });
+});
+</script>
+
+        <div class="row"><div class="col-md-12">
+                <p class="case_quantity">Всего решений в базе:&nbsp;
+                            <span>4</span><span>8</span><span>4</span><span>6</span><span>7</span><span>8</span><span>7</span><span>0</span></p>    </div></div>
+
+<div class="row"><div class="col-md-12">
+<div id="list">
+        <div class="count">
+        <p><b>Всего найдено документов:</b> 48467870.&nbsp;<b>Показано документов:</b> 1000</p>
+    </div>
+                <table class="table table-bordered">
+        <tr class="active">
+            <td style="width:20%">Октябрьский районный суд г. Улан-Удэ</td>
+            <td>
+                <a href="/51900469/extended"><b>
+                2а-2729/2020
+                                &nbsp;(М-2383/2020)
+                                </b></a>            </td>
+        </tr> 
+        <tr>
+            <td width="30%">
+                <p>
+                                Поступило: 23 июня 2020 г.
+                <br>
+                                                Решение вынесено: 8 июля 2020 г.
+                                </p>            </td>
+            <td>
+                <p>
+                                    Межрайонная инспекция Федеральной налоговой службы №1 по Республике Бурятия<br>
+                                    Решетников Дмитрий Юрьевич<br></p>                </td>
+            </tr>
+        </table>
+            <table class="table table-bordered">
+        <tr class="active">
+            <td style="width:20%">Колпашевский городской суд Томской области</td>
+            <td>
+                <a href="/51899322/extended"><b>
+                5-881/2020
+                                </b></a>            </td>
+        </tr> 
+        <tr>
+            <td width="30%">
+                <p>
+                                Поступило: 23 июня 2020 г.
+                <br>
+                                                Решение вынесено: 8 июля 2020 г.
+                                </p>            </td>
+            <td>
+                <p>
+                                    Тельных Максим Викторович<br></p>                </td>
+            </tr>
+        </table>
+            <table class="table table-bordered">
+        <tr class="active">
+            <td style="width:20%">Октябрьский районный суд г. Улан-Удэ</td>
+            <td>
+                <a href="/51900468/extended"><b>
+                2а-2728/2020
+                                &nbsp;(М-2384/2020)
+                                </b></a>            </td>
+        </tr> 
+        <tr>
+            <td width="30%">
+                <p>
+                                Поступило: 23 июня 2020 г.
+                <br>
+                                                Решение вынесено: 8 июля 2020 г.
+                                </p>            </td>
+            <td>
+                <p>
+                                    Межрайонная инспекция Федеральной налоговой службы №1 по Республике Бурятия<br>
+                                    Распутин Максим Юрьевич<br></p>                </td>
+            </tr>
+        </table>
+            <table class="table table-bordered">
+        <tr class="active">
+            <td style="width:20%">Скопинский районный суд Рязанской области</td>
+            <td>
+                <a href="/51910175/extended"><b>
+                9-130/2020
+                                &nbsp;(М-446/2020)
+                                </b></a>            </td>
+        </tr> 
+        <tr>
+            <td width="30%">
+                <p>
+                                Поступило: 23 июня 2020 г.
+                <br>
+                                                Решение вынесено: 8 июля 2020 г.
+                                </p>            </td>
+            <td>
+                <p>
+                                    АВЕРИН НИКОЛАЙ НИКОЛАЕВИЧ<br>
+                                    Шмонова Вера Николаевна<br></p>                </td>
+            </tr>
+        </table>
+            <table class="table table-bordered">
+        <tr class="active">
+            <td style="width:20%">Локтевский районный суд Алтайского края</td>
+            <td>
+                <a href="/51904873/extended"><b>
+                1-85/2020
+                                </b></a>            </td>
+        </tr> 
+        <tr>
+            <td width="30%">
+                <p>
+                                Поступило: 23 июня 2020 г.
+                <br>
+                                                Решение вынесено: 8 июля 2020 г.
+                                </p>            </td>
+            <td>
+                <p>
+                                    Коломыцина Валентина Викторовна<br>
+                                    прокурор<br>
+                                    Шувалов Сергей Борисович<br></p>                </td>
+            </tr>
+        </table>
+            <table class="table table-bordered">
+        <tr class="active">
+            <td style="width:20%">Мичуринский городской суд Тамбовской области</td>
+            <td>
+                <a href="/51910614/extended"><b>
+                2-903/2020
+                                &nbsp;(М-891/2020)
+                                </b></a>            </td>
+        </tr> 
+        <tr>
+            <td width="30%">
+                <p>
+                                Поступило: 23 июня 2020 г.
+                <br>
+                                                Решение вынесено: 8 июля 2020 г.
+                                </p>            </td>
+            <td>
+                <p>
+                                    Информация скрыта<br>
+                                    Информация скрыта<br></p>                </td>
+            </tr>
+        </table>
+            <table class="table table-bordered">
+        <tr class="active">
+            <td style="width:20%">Тюменцевский районный суд Алтайского края</td>
+            <td>
+                <a href="/51904961/extended"><b>
+                5-61/2020
+                                </b></a>            </td>
+        </tr> 
+        <tr>
+            <td width="30%">
+                <p>
+                                Поступило: 23 июня 2020 г.
+                <br>
+                                                Решение вынесено: 8 июля 2020 г.
+                                </p>            </td>
+            <td>
+                <p>
+                                    Кузнецов Андрей Геннадьевич<br></p>                </td>
+            </tr>
+        </table>
+            <table class="table table-bordered">
+        <tr class="active">
+            <td style="width:20%">Зареченский городской суд Пензенской области</td>
+            <td>
+                <a href="/51909926/extended"><b>
+                12-86/2020
+                                </b></a>            </td>
+        </tr> 
+        <tr>
+            <td width="30%">
+                <p>
+                                Поступило: 23 июня 2020 г.
+                <br>
+                                                Решение вынесено: 8 июля 2020 г.
+                                </p>            </td>
+            <td>
+                <p>
+                                    Данилкин Владимир Александрович<br></p>                </td>
+            </tr>
+        </table>
+            <table class="table table-bordered">
+        <tr class="active">
+            <td style="width:20%">Новгородский районный суд Новгородской области</td>
+            <td>
+                <a href="/51908903/extended"><b>
+                2а-3324/2020
+                                &nbsp;(М-3380/2020)
+                                </b></a>            </td>
+        </tr> 
+        <tr>
+            <td width="30%">
+                <p>
+                                Поступило: 23 июня 2020 г.
+                <br>
+                                                Решение вынесено: 8 июля 2020 г.
+                                </p>            </td>
+            <td>
+                <p>
+                                    Прокуратура Великого Новгорода<br>
+                                    Управление Роскомнадзора по Новгородской области<br></p>                </td>
+            </tr>
+        </table>
+            <table class="table table-bordered">
+        <tr class="active">
+            <td style="width:20%">Кузнецкий районный суд Пензенской области</td>
+            <td>
+                <a href="/51909867/extended"><b>
+                2-725/2020
+                                &nbsp;(М-742/2020)
+                                </b></a>            </td>
+        </tr> 
+        <tr>
+            <td width="30%">
+                <p>
+                                Поступило: 23 июня 2020 г.
+                <br>
+                                                Решение вынесено: 8 июля 2020 г.
+                                </p>            </td>
+            <td>
+                <p>
+                                    Комиссаров Олег Александрович<br>
+                                    Лебедикова Анна Викторовна<br>
+                                    отдел по вопросам миграции ОМВД России по г.Кузнецку<br></p>                </td>
+            </tr>
+        </table>
+            <table class="table table-bordered">
+        <tr class="active">
+            <td style="width:20%">Рыбинский районный суд Красноярского края</td>
+            <td>
+                <a href="/51903751/extended"><b>
+                5-80/2020
+                                </b></a>            </td>
+        </tr> 
+        <tr>
+            <td width="30%">
+                <p>
+                                Поступило: 23 июня 2020 г.
+                <br>
+                                                Решение вынесено: 8 июля 2020 г.
+                                </p>            </td>
+            <td>
+                <p>
+                                    Богов Артем Владимирович<br></p>                </td>
+            </tr>
+        </table>
+            <table class="table table-bordered">
+        <tr class="active">
+            <td style="width:20%">Петропавловск-Камчатский городской суд Камчатский края</td>
+            <td>
+                <a href="/51907014/extended"><b>
+                1-528/2020
+                                </b></a>            </td>
+        </tr> 
+        <tr>
+            <td width="30%">
+                <p>
+                                Поступило: 23 июня 2020 г.
+                <br>
+                                                Решение вынесено: 8 июля 2020 г.
+                                </p>            </td>
+            <td>
+                <p>
+                                    Гранкин Владимир Викторович<br>
+                                    Хачатурян Т.М.<br>
+                                    Шеремет Оксана Игоревна<br></p>                </td>
+            </tr>
+        </table>
+            <table class="table table-bordered">
+        <tr class="active">
+            <td style="width:20%">Урюпинский городской суд Волгоградской области</td>
+            <td>
+                <a href="/51906128/extended"><b>
+                5-589/2020
+                                </b></a>            </td>
+        </tr> 
+        <tr>
+            <td width="30%">
+                <p>
+                                Поступило: 23 июня 2020 г.
+                <br>
+                                                Решение вынесено: 8 июля 2020 г.
+                                </p>            </td>
+            <td>
+                <p>
+                                    Кручинин Сергей Васильевич<br></p>                </td>
+            </tr>
+        </table>
+            <table class="table table-bordered">
+        <tr class="active">
+            <td style="width:20%">Колпашевский городской суд Томской области</td>
+            <td>
+                <a href="/51899325/extended"><b>
+                5-867/2020
+                                </b></a>            </td>
+        </tr> 
+        <tr>
+            <td width="30%">
+                <p>
+                                Поступило: 23 июня 2020 г.
+                <br>
+                                                Решение вынесено: 8 июля 2020 г.
+                                </p>            </td>
+            <td>
+                <p>
+                                    Игнатьев Виктор Николаевич<br></p>                </td>
+            </tr>
+        </table>
+            <table class="table table-bordered">
+        <tr class="active">
+            <td style="width:20%">Колпашевский городской суд Томской области</td>
+            <td>
+                <a href="/51899323/extended"><b>
+                5-880/2020
+                                </b></a>            </td>
+        </tr> 
+        <tr>
+            <td width="30%">
+                <p>
+                                Поступило: 23 июня 2020 г.
+                <br>
+                                                Решение вынесено: 8 июля 2020 г.
+                                </p>            </td>
+            <td>
+                <p>
+                                    Вербенец Александр Вячеславович<br></p>                </td>
+            </tr>
+        </table>
+            <table class="table table-bordered">
+        <tr class="active">
+            <td style="width:20%">Урюпинский городской суд Волгоградской области</td>
+            <td>
+                <a href="/51906127/extended"><b>
+                5-591/2020
+                                </b></a>            </td>
+        </tr> 
+        <tr>
+            <td width="30%">
+                <p>
+                                Поступило: 23 июня 2020 г.
+                <br>
+                                                Решение вынесено: 8 июля 2020 г.
+                                </p>            </td>
+            <td>
+                <p>
+                                    Коробков Владимир Николаевич<br></p>                </td>
+            </tr>
+        </table>
+            <table class="table table-bordered">
+        <tr class="active">
+            <td style="width:20%">Серышевский районный суд Амурской области</td>
+            <td>
+                <a href="/51890493/extended"><b>
+                1-130/2020
+                                </b></a>            </td>
+        </tr> 
+        <tr>
+            <td width="30%">
+                <p>
+                                Поступило: 23 июня 2020 г.
+                <br>
+                                                Решение вынесено: 8 июля 2020 г.
+                                </p>            </td>
+            <td>
+                <p></p>                </td>
+            </tr>
+        </table>
+            <table class="table table-bordered">
+        <tr class="active">
+            <td style="width:20%">Санкт-Петербургский городской суд</td>
+            <td>
+                <a href="/51892283/extended"><b>
+                22К-3941/2020
+                                </b></a>            </td>
+        </tr> 
+        <tr>
+            <td width="30%">
+                <p>
+                                Поступило: 23 июня 2020 г.
+                <br>
+                                                Решение вынесено: 8 июля 2020 г.
+                                </p>            </td>
+            <td>
+                <p>
+                                    Ефимов Александр Александрович<br>
+                                    Барамия К.З., Купцова Е.П.<br>
+                                    Шибков А.А.<br></p>                </td>
+            </tr>
+        </table>
+            <table class="table table-bordered">
+        <tr class="active">
+            <td style="width:20%">Борзинский городской суд Забайкальский края</td>
+            <td>
+                <a href="/51904275/extended"><b>
+                11-26/2020
+                                </b></a>            </td>
+        </tr> 
+        <tr>
+            <td width="30%">
+                <p>
+                                Поступило: 23 июня 2020 г.
+                <br>
+                                                Решение вынесено: 8 июля 2020 г.
+                                </p>            </td>
+            <td>
+                <p>
+                                    Климчук Дмитрий Александрович<br>
+                                    ООО &quot;МК &quot;Лайм-Займ&quot;<br></p>                </td>
+            </tr>
+        </table>
+            <table class="table table-bordered">
+        <tr class="active">
+            <td style="width:20%">Центральный районный суд г. Новосибирск</td>
+            <td>
+                <a href="/51909037/extended"><b>
+                5-253/2020
+                                </b></a>            </td>
+        </tr> 
+        <tr>
+            <td width="30%">
+                <p>
+                                Поступило: 23 июня 2020 г.
+                <br>
+                                                Решение вынесено: 8 июля 2020 г.
+                                </p>            </td>
+            <td>
+                <p>
+                                    Марченко Евгений Викторович<br></p>                </td>
+            </tr>
+        </table>
+    </div>
+</div></div>
+
+    <div class="row"><div class="col-md-12">
+        <div class="navigation">
+            
+    
+                
+        <ul class="pagination">
+            
+                            <li><a href="/extended-search?page=2">&laquo;</a></li>
+            
+                                                <li><a href="/extended-search?page=1">1</a></li>
+                
+                                                <li><a href="/extended-search?page=2">2</a></li>
+                
+                                                <li class="active"><span>3</span></li>
+                
+                                                <li><a href="/extended-search?page=4">4</a></li>
+                
+                                                <li><a href="/extended-search?page=5">5</a></li>
+                
+            
+                            <li><a href="/extended-search?page=4">&raquo;</a></li>
+            
+                    </ul>
+    
+        </div>
+    </div></div>
+    </div>
+    <div class="col-md-3" style="padding-top:40px">
+<!-- R-138237-1 Яндекс.RTB-блок  -->
+<div id="yandex_ad_R-138237-1"></div>
+<script type="text/javascript">
+(function(w, d, n, s, t) {
+w[n] = w[n] || [];
+w[n].push(function() {
+Ya.Context.AdvManager.render({
+	blockId: "R-138237-1",
+	renderTo: "yandex_ad_R-138237-1",
+	async: true
+});
+});
+t = d.getElementsByTagName("script")[0];
+s = d.createElement("script");
+s.type = "text/javascript";
+s.src = "//an.yandex.ru/system/context.js";
+s.async = true;
+t.parentNode.insertBefore(s, t);
+})(this, this.document, "yandexContextAsyncCallbacks");
+</script>
+
+<!-- Яндекс.Директ -->
+<div style="margin-top:20px" id="yandex_ad"></div>
+<script type="text/javascript">
+(function(w, d, n, s, t) {
+w[n] = w[n] || [];
+w[n].push(function() {
+Ya.Direct.insertInto(138237, "yandex_ad", {
+stat_id: 2,
+ad_format: "direct",
+type: "posterVertical",
+border_type: "ad",
+limit: 3,
+title_font_size: 3,
+links_underline: true,
+site_bg_color: "FFFFFF",
+border_color: "6666CC",
+title_color: "000099",
+url_color: "000099",
+text_color: "000000",
+hover_color: "6666CC",
+sitelinks_color: "000099",
+favicon: true,
+no_sitelinks: false
+});
+});
+t = d.getElementsByTagName("script")[0];
+s = d.createElement("script");
+s.src = "//an.yandex.ru/system/context.js";
+s.type = "text/javascript";
+s.async = true;
+t.parentNode.insertBefore(s, t);
+})(window, document, "yandex_context_callbacks");
+</script>
+
+        <div style="margin-top:20px">
+</div>
+
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- СудРеш_справа --> <ins class="adsbygoogle" style="display:inline-block;width:240px;height:400px" data-ad-client="ca-pub-3942066338277934" data-ad-slot="8693429207"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+
+        <script type='text/javascript'><!--//<![CDATA[
+   var m3_u = (location.protocol=='https:'?'https://ox.ruscourt.info/www/delivery/ajs.php':'http://ox.ruscourt.info/www/delivery/ajs.php');
+   var m3_r = Math.floor(Math.random()*99999999999);
+   if (!document.MAX_used) document.MAX_used = ',';
+   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+   document.write ("?zoneid=10&amp;target=_blank&amp;charset=UTF-8");
+   document.write ('&amp;cb=' + m3_r);
+   if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+   document.write ('&amp;charset=UTF-8');
+   document.write ("&amp;loc=" + escape(window.location));
+   if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+   if (document.context) document.write ("&context=" + escape(document.context));
+   if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+   document.write ("'><\/scr"+"ipt>");
+//]]>--></script><noscript><a href='http://ox.ruscourt.info/www/delivery/ck.php?n=a2fa485b&amp;cb=8943956285628542' target='_blank'><img src='http://ox.ruscourt.info/www/delivery/avw.php?zoneid=10&amp;charset=UTF-8&amp;cb=8943956285628542&amp;n=a2fa485b' border='0' alt='' /></a></noscript>
+
+
+        <script type='text/javascript'><!--//<![CDATA[
+   var m3_u = (location.protocol=='https:'?'https://ox.ruscourt.info/www/delivery/ajs.php':'http://ox.ruscourt.info/www/delivery/ajs.php');
+   var m3_r = Math.floor(Math.random()*99999999999);
+   if (!document.MAX_used) document.MAX_used = ',';
+   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+   document.write ("?zoneid=11&amp;target=_blank&amp;charset=UTF-8");
+   document.write ('&amp;cb=' + m3_r);
+   if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+   document.write ('&amp;charset=UTF-8');
+   document.write ("&amp;loc=" + escape(window.location));
+   if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+   if (document.context) document.write ("&context=" + escape(document.context));
+   if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+   document.write ("'><\/scr"+"ipt>");
+//]]>--></script><noscript><a href='http://ox.ruscourt.info/www/delivery/ck.php?n=a8971d1a&amp;cb=3486749764967596' target='_blank'><img src='http://ox.ruscourt.info/www/delivery/avw.php?zoneid=11&amp;charset=UTF-8&amp;cb=3486749764967596&amp;n=a8971d1a' border='0' alt='' /></a></noscript>
+
+
+    </div>
+</div>
+<div class="row" style="margin-top:100px">
+    <div class="col-md-4 blue-stripe"><p style="line-height:40px">
+        <!-- Rating@Mail.ru logo -->
+        <a href="http://top.mail.ru/jump?from=2044964"><img src="//top-fwz1.mail.ru/counter?id=2044964;t=272;l=1" style="border:0;" height="31" width="38" alt="Рейтинг@Mail.ru" /></a>
+        <!-- //Rating@Mail.ru logo -->
+    </p></div>
+    <div class="col-md-4 blue-stripe"><p style="font-weight:normal; line-height:40px; text-align:center"><a href="/about">О проекте</a>&nbsp;|&nbsp;<a href="http://old.судебныерешения.рф" target="_blank">Переход на старый сайт</a></p></div>
+    <div class="col-md-4 blue-stripe"><p style="font-weight:normal; line-height:40px; text-align:right">&copy; Павел Нетупский ООО «ПИК-пресс».</p></div>
+</div>
+</div>
+</div>
+
+    <!-- Include all JavaScripts, compiled by Assetic -->
+    <script src="/js/bootstrap.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-104674301-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter45642543 = new Ya.Metrika({
+                    id:45642543,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/45642543" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</body>
+</html>
