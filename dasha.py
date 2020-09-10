@@ -79,7 +79,7 @@ response = requests.request(method='POST',
 for i in range(1, 15):
     print("process page id={}".format(i))
     urls = get_document_urls(url='http://судебныерешения.рф/extended-search?page={}'.format(i),
-                             cookies=response.cookies)
+                             cookies=response.history[0].cookies)
 
     for url in urls:
         all_hrefs.append(url)
